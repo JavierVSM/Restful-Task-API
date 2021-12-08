@@ -1,11 +1,13 @@
 const express = require ('express');
 const mongoose = require ('mongoose');
 const path = require( 'path' );
+const cors = require( 'cors' );
 const {AppRouter} = require( './server/routes/appRouter' );
 
 require( './server/config/database' );
 const app = express ();
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, "/client/static")));
 app.use(express.urlencoded({extendend:true}) );
 

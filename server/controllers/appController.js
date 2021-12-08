@@ -10,7 +10,6 @@ const AppController = {
                 });
         },
 
-        
         display: function (request, response){
             let id = request.params.id;
             AppModel
@@ -19,13 +18,14 @@ const AppController = {
                 if (result === null){
                     throw new Error("null");
                 }
-                response.status( 200 ).json( data );
+                response.status( 200 ).json( result );
             })
             .catch( err => {
                 response.statusMessage = "No data with this task";
                 response.status( 404 ).end();
             });
         },
+
 
         add: function (request, response){
             const title= request.body.title;
